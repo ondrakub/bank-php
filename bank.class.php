@@ -6,7 +6,7 @@
  * @author     Ondřej Kubíček
  * @copyright  Copyright (c) 2014 Ondřej Kubíček
  * @license    New BSD License
- * @link       http://bank.kubon.cz
+ * @link       http://www.kubon.cz
  * @version    1.0
  */
 class Bank
