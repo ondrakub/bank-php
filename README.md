@@ -5,6 +5,8 @@ Bank for PHP is a very small and easy-to-use library for getting Czech code or n
 
 Usage
 -----
+It is simple to use. Just call static methods ``Bank::getName($code)`` for getting name of bank and ``Bank::getCodes($name)`` for getting an array of codes of banks
+
 ```php
 try {
 
@@ -27,13 +29,6 @@ try {
 	echo 'Error: '. $e->getMessage();
 }
 ```
-
-Files
------
-readme.md        - This file.
-license.md       - The license for this software (New BSD License).
-bank.class.php   - The core Bank class source.
-example.php      - Example.
 
 
 (c) Ondřej Kubíček, 2014 (http://www.kubon.cz)
