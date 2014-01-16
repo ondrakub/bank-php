@@ -1,0 +1,16 @@
+{
+	"name": "ondrakub/bank-php",
+	"description": "Easy-to-use library for getting Czech code or name of bank.",
+	"keywords": ["bank", "code", "name"],
+	"homepage": "https://github.com/ondrakub/bank-php",
+	"license": ["BSD-3"],
+	"authors": [
+		{
+			"name": "Ondřej Kubíček",
+			"homepage": "http://www.kubon.cz"
+		}
+	],
+	"autoload": {
+		"classmap": ["bank.class.php"]
+	}
+}
