@@ -1,16 +1,18 @@
 <?php
 
 /**
- * Banks name and code for PHP - small and easy-to-use library for getting Czech code or name of bank 
+ * Bank for PHP - small and easy-to-use library for getting Czech code or name of bank 
  *
  * @author     Ondřej Kubíček
  * @copyright  Copyright (c) 2014 Ondřej Kubíček
  * @license    New BSD License
  * @link       http://www.kubon.cz
- * @version    1.0
+ * @version    1.0.1
  */
 class Bank
 {
+
+	const ZERO = TRUE;
 
 	private static $banks = array(
 		  '0100' => 'Komerční banka',
@@ -61,6 +63,105 @@ class Bank
 		  '8231' => 'Bank Gutmann Aktiengesellschaft'
 	);
 
+	private $account = NULL;
+
+	private $prefix = NULL;
+
+	private $number = NULL;
+
+	private $code = NULL;
+
+	private $valid = FALSE;
+
+	public function __construct($account)
+	{
+		$this->parse($account);
+		$this->valid();
+	}
+
+
+	public function getPrefix($zero = FALSE)
+	{
+		if ($zero === FALSE) {
+			return $this->prefix;
+		}
+
+		return sprintf("%06d", $this->prefix);
+	}
+
+	public function getNumber($zero = FALSE)
+	{
+		if ($zero === FALSE) {
+			return $this->number;
+		}
+
+		return sprintf("%010d", $this->number);
+	}
+
+	public function getCode()
+	{
+		return $this->code;
+	}
+
+	public function getAccount()
+	{
+		return $this->account;
+	}
+
+	public function getIban()
+	{
+		
+	}
+
+	public function getBic()
+	{
+		
+	}
+
+	public function isValid()
+	{
+		return $this->valid;
+	}
+
+	private function parse($account)
+	{
+		if (!preg_match('/(([\d]{0,6})[\-])?([\d]{2,10})\/([\d]{4})/', $account, $match)){
+			throw new BankException('Enter account number');	
+		}
+
+		$this->prefix = (int) $match[2];
+		$this->number = (int) $match[3];
+		$this->code = (int) $match[4];
+
+		$this->account = $account;
+	}
+
+	/*000000-1135595026/3030
+		pro první část čísla účtu: 10, 5, 8, 4, 2, 1
+		pro druhou část čísla účtu: 6, 3, 7, 9, 10, 5, 8, 4, 2, 1.
+		sečíst násobky, pak vydělit 11 a zbytek musí byt roven 0
+	*/
+	private function valid()
+	{
+		$prefix_scales = array(10, 5, 8, 4, 2, 1);
+		$number_scales = array(6, 3, 7, 9, 10, 5, 8, 4, 2, 1);
+
+		if ($this->calculate($this->getPrefix(self::ZERO), $prefix_scales) && $this->calculate($this->getNumber(self::ZERO), $number_scales)){
+			$this->valid = TRUE;
+		}
+	}
+
+	private function calculate($number, $scales)
+	{
+		$sum = 0;
+		foreach ($scales as $key => $value) {
+			$sum += $number[$key]*$value;
+		}
+		
+		return bcmod($sum, 11) === '0' ? TRUE : FALSE;
+	}
+
+
 	/**
 	 * @param int code
 	 * @return string
@@ -87,6 +188,9 @@ class Bank
 		}
 		throw new BankException('No match found');
 	}
+
+
+
 }
 
 /**
