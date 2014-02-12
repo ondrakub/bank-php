@@ -6,7 +6,10 @@ Bank for PHP is a very small and easy-to-use library for works with bank account
 Install
 -------
 via composer
-```php composer.phar require ondrakub/bank-php```
+
+```
+php composer.phar require ondrakub/bank-php
+```
 
 Usage
 -----
