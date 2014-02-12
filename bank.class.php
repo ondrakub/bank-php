@@ -240,7 +240,7 @@ class Bank
 	 */
 	public static function getName($code)
 	{
-		if (is_numeric($code) && array_key_exists($code, self::$banks)) {
+		if (array_key_exists($code, self::$banks)) {
 			return self::$banks[$code]['name'];
 		}
 		throw new BankException('Bad code');
