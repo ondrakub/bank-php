@@ -3,6 +3,11 @@ Bank for PHP
 
 Bank for PHP is a very small and easy-to-use library for works with bank account
 
+Install
+-------
+via composer
+```php composer.phar require ondrakub/bank-php```
+
 Usage
 -----
 It is simple to use. Just call static methods ``Bank::getName($code)`` for getting name of bank and ``Bank::getCodes($name)`` for getting an array of codes of banks
