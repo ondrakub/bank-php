@@ -63,7 +63,7 @@ class Bank
 		  '3020' => array('name' => 'MEINL BANK Aktiengesellschaft,pobočka Praha',
 		  				   'bic' => ''),
 		  '3030' => array('name' => 'Air Bank a.s.',
-		  				   'bic' => 'AIRACZP1'),
+		  				   'bic' => 'AIRACZPP'),
 		  '3500' => array('name' => 'ING Bank N.V.',
 		  				   'bic' => 'INGBCZPP'),
 		  '4000' => array('name' => 'LBBW Bank CZ a.s.',
@@ -141,12 +141,7 @@ class Bank
 	 */
 	public function __construct($account)
 	{
-		try {
-			$this->parse($account);
-		} catch (BankException $e) {
-			throw new BankException($e->getMessage());
-		}
-
+		$this->parse($account);
 		$this->valid();
 	}
 
@@ -154,7 +149,7 @@ class Bank
 	 * prefix account
 	 * @param bool zero
 	 * @return int
-	 */ 
+	 */
 	public function getPrefix($zero = FALSE)
 	{
 		if ($zero === FALSE) {
@@ -168,7 +163,7 @@ class Bank
 	 * account number
 	 * @param bool zero
 	 * @return int
-	 */ 
+	 */
 	public function getNumber($zero = FALSE)
 	{
 		if ($zero === FALSE) {
@@ -181,7 +176,7 @@ class Bank
 	/**
 	 * account code
 	 * @return int
-	 */ 
+	 */
 	public function getCode()
 	{
 		return $this->code;
@@ -191,7 +186,7 @@ class Bank
 	 * full account number
 	 * @param bool zero
 	 * @return string
-	 */ 
+	 */
 	public function getAccount($zero = FALSE)
 	{
 		if ($zero === FALSE) {
@@ -204,7 +199,7 @@ class Bank
 	 * IBAN code
 	 * @param bool formatted
 	 * @return string
-	 */ 
+	 */
 	public function getIban($formatted = FALSE)
 	{
 		$iban = 'CZ' . $this->generateIbanVerifyCode() . $this->getIbanFormat();
@@ -218,7 +213,7 @@ class Bank
 	/**
 	 * BIC code (SWIFT)
 	 * @return string
-	 */ 
+	 */
 	public function getBic()
 	{
 		return self::$banks[$this->getCode()]['bic'];
@@ -227,7 +222,7 @@ class Bank
 	/**
 	 * if the account is valid
 	 * @return bool
-	 */ 
+	 */
 	public function isValid()
 	{
 		return $this->valid;
@@ -247,7 +242,7 @@ class Bank
 	}
 
 	/**
-	 * @param string 
+	 * @param string
 	 * @return array
 	 * @throws BankException
 	 */
@@ -264,7 +259,7 @@ class Bank
 	private function parse($account)
 	{
 		if (!preg_match('/(([\d]{0,6})[\-])?([\d]{2,10})\/([\d]{4})/', $account, $match)){
-			throw new BankException('Enter account number');	
+			throw new BankException('Enter account number');
 		}
 
 		$this->prefix = (int) $match[2];
@@ -291,7 +286,7 @@ class Bank
 		foreach ($scales as $key => $value) {
 			$sum += $number[$key]*$value;
 		}
-		
+
 		return bcmod($sum, 11) === '0' ? TRUE : FALSE;
 	}
 
