@@ -10,7 +10,15 @@
 			"homepage": "http://www.kubon.cz"
 		}
 	],
+	"require": {
+		"php": ">=5.3"
+	},
+	"require-dev": {
+		"nette/tester": "~1.3"
+	},
 	"autoload": {
-		"classmap": ["bank.class.php"]
+		"psr-4": {
+			"Ondrakub\\": "src"
+		}
 	}
 }

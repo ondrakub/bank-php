@@ -1,5 +1,7 @@
 <?php
 
+namespace Ondrakub;
+
 /**
  * Bank for PHP - small and easy-to-use library for works with bank account
  *
