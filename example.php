@@ -1,6 +1,8 @@
 <?php
 
-require_once 'bank.class.php';
+use Ondrakub\Bank;
+
+require_once __DIR__ . '/vendor/autoload.php';
 
 try {
 
@@ -18,7 +20,7 @@ try {
 	foreach ($codes as $key => $value) {
 		echo $key . ' - '. $value['name'] . '<br>';
 	}
-	
+
 } catch (BankException $e) {
 	echo 'Error: '. $e->getMessage();
 }
