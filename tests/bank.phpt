@@ -46,4 +46,4 @@ Assert::same(3030, $b->getCode());
 Assert::true($b->isValid());
 Assert::same('CZ0430300000001135595026', $b->getIban());
 Assert::same('CZ04 3030 0000 0011 3559 5026', $b->getIban(Bank::FORMATTED));
-Assert::same('AIRACZPP', $b->getBic());
+Assert::same('AIRACZP1', $b->getBic());

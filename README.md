@@ -68,5 +68,3 @@ try {
 }
 
 ```
-
-(c) Ondřej Kubíček, 2014 (http://www.kubon.cz)
