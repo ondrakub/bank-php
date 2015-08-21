@@ -248,8 +248,12 @@ class Bank
 	 * @return array
 	 * @throws BankException
 	 */
-	public static function getCodes($name)
+	public static function getCodes($name = '')
 	{
+		if (empty($name)){
+			return self::$banks;
+		}
+
 		$ret = array_filter(self::$banks, function($var) use ($name) { return strpos(strtolower($var['name']), strtolower($name)) !== FALSE; });
 		if (!empty($ret)) {
 			return $ret;
