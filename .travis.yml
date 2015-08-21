@@ -14,6 +14,11 @@ env:
 matrix:
   allow_failures:
     - php: hhvm
+
+  exclude:
+        - php: hhvm
+          env: PHP_BIN=php-cgi
+
   include:
       - php: 5.6
         env: dependencies="--prefer-lowest --prefer-stable" PHP_BIN=php
@@ -29,3 +34,9 @@ before_install:
 
 before_script:
     - travis_retry composer update --no-interaction --prefer-dist $dependencies
+
+sudo: false
+
+cache:
+    directories:
+        - $HOME/.composer/cache
