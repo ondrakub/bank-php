@@ -1,6 +1,11 @@
 Bank for PHP
 ================================
 
+[![Total Downloads](https://poser.pugx.org/ondrakub/bank-php/downloads)](https://packagist.org/packages/ondrakub/bank-php)
+[![Build Status](https://travis-ci.org/ondrakub/bank-php.svg?branch=master)](https://travis-ci.org/ondrakub/bank-php)
+[![Latest Stable Version](https://poser.pugx.org/ondrakub/bank-php/v/stable)](https://packagist.org/packages/ondrakub/bank-php)
+[![License](https://img.shields.io/badge/license-New%20BSD-blue.svg)](https://github.com/ondrakub/bank-php/blob/master/license.md)
+
 Bank for PHP is a very small and easy-to-use library for works with bank account
 
 Install
@@ -32,7 +37,7 @@ try {
 	foreach ($codes as $key => $value) {
 		echo $key . ' - '. $value . '<br>';
 	}
-	
+
 } catch (BankException $e) {
 	echo 'Error: '. $e->getMessage();
 }

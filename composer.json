@@ -3,7 +3,7 @@
 	"description": "Easy-to-use library for getting Czech code or name of bank.",
 	"keywords": ["bank", "code", "name", "account", "number", "iban", "swift", "bic", "valid"],
 	"homepage": "https://github.com/ondrakub/bank-php",
-	"license": ["BSD-3"],
+	"license": ["BSD-3-Clause", "GPL-2.0", "GPL-3.0"],
 	"authors": [
 		{
 			"name": "Ondřej Kubíček",
