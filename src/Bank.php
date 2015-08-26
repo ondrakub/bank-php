@@ -9,7 +9,7 @@ namespace Ondrakub;
  * @copyright  Copyright (c) 2014 Ondřej Kubíček
  * @license    New BSD License
  * @link       http://www.kubon.cz
- * @version    1.1
+ * @version    1.2
  */
 class Bank
 {
@@ -19,7 +19,7 @@ class Bank
 		FORMATTED = TRUE;
 
 	/**
-	 * taken from https://www.cnb.cz/cs/platebni_styk/ucty_kody_bank/ to date 1. 2. 2014
+	 * taken from https://www.cnb.cz/cs/platebni_styk/ucty_kody_bank/ to date 21. 8. 2015
 	 */
 	private static $banks = array(
 		  '0100' => array('name' => 'Komerční banka, a.s.',
