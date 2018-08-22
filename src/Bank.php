@@ -187,7 +187,7 @@ class Bank
 	 */
 	public function getCode()
 	{
-		return $this->code;
+		return sprintf("%04d", $this->code);
 	}
 
 	/**

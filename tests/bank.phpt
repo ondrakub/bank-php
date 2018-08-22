@@ -42,7 +42,7 @@ Assert::same(0, $b->getPrefix());
 Assert::same('000000', $b->getPrefix(Bank::ZERO));
 Assert::same(1135595026, $b->getNumber());
 Assert::same('1135595026', $b->getNumber(Bank::ZERO));
-Assert::same(3030, $b->getCode());
+Assert::same('3030', $b->getCode());
 Assert::true($b->isValid());
 Assert::same('CZ0430300000001135595026', $b->getIban());
 Assert::same('CZ04 3030 0000 0011 3559 5026', $b->getIban(Bank::FORMATTED));
