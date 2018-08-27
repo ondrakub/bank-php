@@ -9,7 +9,7 @@ namespace Ondrakub;
  * @copyright  Copyright (c) 2014 Ondřej Kubíček
  * @license    New BSD License
  * @link       http://www.kubon.cz
- * @version    1.2
+ * @version    1.3
  */
 class Bank
 {
@@ -168,7 +168,7 @@ class Bank
 	/**
 	 * prefix account
 	 * @param bool zero
-	 * @return int
+	 * @return int|string
 	 */
 	public function getPrefix($zero = FALSE)
 	{
@@ -182,7 +182,7 @@ class Bank
 	/**
 	 * account number
 	 * @param bool zero
-	 * @return int
+	 * @return int|string
 	 */
 	public function getNumber($zero = FALSE)
 	{
@@ -195,7 +195,7 @@ class Bank
 
 	/**
 	 * account code
-	 * @return int
+	 * @return string
 	 */
 	public function getCode()
 	{
